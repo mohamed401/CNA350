@@ -84,19 +84,7 @@ zipcodes_two.zipcodes_two LIMIT 10;"+---------+-------------+-------------+-----
 | 40997 | STANDARD | WALKER | KY | PRIMARY | 36.88 | -83.71 | NA-US-KY-WALKER | FALSE | | | |
 | 41139 | STANDARD | FLATWOODS | KY | PRIMARY | 38.51 | -82.72 | NA-US-KY-FLATWOODS | FALSE | 3692 | 6748 | 121902277 |
 +---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
-access the slave shard database zipcode one:
 
-~/CNA350/maxscale/sql/shard-A/slave$ mysql -umaxuser -pmaxpwd -h 127.0.0.1 -P 3306 -e "SELECT * FROM
-zipcodes_one.zipcodes_one LIMIT 5;" +---------+-------------+----------+-------+--------------+-----------+------------+---
-----------------+---------------+-----------------+---------------------+------------+ | Zipcode | ZipCodeType | City | State |
-LocationType | Coord_Lat | Coord_Long | Location | Decommisioned | TaxReturnsFiled | EstimatedPopulation | TotalWages | +----
------+-------------+----------+-------+--------------+-----------+------------+-------------------+---------------+----------
--------+---------------------+------------+ | 705 | STANDARD | AIBONITO | PR | PRIMARY | 18.14 | -66.26 | NA-US-PR-
-AIBONITO | FALSE | | | | | 610 | STANDARD | ANASCO | PR | PRIMARY | 18.28 | -67.14 | NA-US-PR-ANASCO | FALSE | | | | | 611 |
-PO BOX | ANGELES | PR | PRIMARY | 18.28 | -66.79 | NA-US-PR-ANGELES | FALSE | | | | | 612 | STANDARD | ARECIBO | PR |
-PRIMARY | 18.45 | -66.73 | NA-US-PR-ARECIBO | FALSE | | | | | 601 | STANDARD | ADJUNTAS | PR | PRIMARY | 18.16 | -66.72 |
-NA-US-PR-ADJUNTAS | FALSE | | | | +---------+-------------+----------+-------+--------------+-----------+------------+----
----------------+---------------+-----------------+---------------------+
 
 To access a master shard database from zipcode two:
 
