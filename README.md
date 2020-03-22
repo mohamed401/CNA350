@@ -4,6 +4,8 @@ Real World Project
 
 First Step you have install commands in your VM
 
+sudo apt install docker.io sudo apt install docker-compose sudo apt mariadb-client
+
 #sudo apt install docker
 
 #sudo apt install docker-compose
@@ -98,7 +100,7 @@ NA-US-PR-ADJUNTAS | FALSE | | | | +---------+-------------+----------+-------+--
 
 To access a master shard database from zipcode two:
 
-/CNA350/maxscale$ mysql -u maxuser -pmaxpwd -h 127.0.0.1 -P 3306 -e "SELECT * FROM zipcodes_two.zipcodes_two LIMIT 7;"
+/CNA350/maxscale$ mysql -u maxuser -pmaxpwd -h 127.0.0.1 -P 3306 -e "SELECT * FROM zipcodes_two.zipcodes_two LIMIT 10;"
 
 It gives me the output:
 
