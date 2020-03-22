@@ -68,18 +68,20 @@ zipcodes_two | +--------------------+
 access the master shard database zipcode two
 
 :~/CNA350/maxscale/sql/shard-A/master$ mysql -umaxuser -pmaxpwd -h 127.0.0.1 -P 3306 -e "SELECT * FROM
-zipcodes_two.zipcodes_two LIMIT 5;" +---------+-------------+-------------+-------+--------------+-----------+------------
-+----------------------+---------------+-----------------+---------------------+------------+ | Zipcode | ZipCodeType | City |
-State | LocationType | Coord_Lat | Coord_Long | Location | Decommisioned | TaxReturnsFiled | EstimatedPopulation | TotalWages
-| +---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+--------------
--+-----------------+---------------------+------------+ | 42040 | STANDARD | FARMINGTON | KY | PRIMARY | 36.67 | -88.53 |
-NA-US-KY-FARMINGTON | FALSE | 465 | 896 | 11562973 | | 41524 | STANDARD | FEDSCREEK | KY | PRIMARY | 37.4 | -82.24 |
-NA-US-KY-FEDSCREEK | FALSE | | | | | 42533 | STANDARD | FERGUSON | KY | PRIMARY | 37.06 | -84.59 | NA-US-KY-
-FERGUSON | FALSE | 429 | 761 | 9555412 | | 40022 | STANDARD | FINCHVILLE | KY | PRIMARY | 38.15 | -85.31 | NA-US-KY-
-FINCHVILLE | FALSE | 437 | 839 | 19909942 | | 40023 | STANDARD | FISHERVILLE | KY | PRIMARY | 38.16 | -85.42 | NA-US-KY-
-FISHERVILLE | FALSE | 1884 | 3733 | 113020684 | +---------+-------------+-------------+-------+--------------+-----------+-
------------+----------------------+---------------+-----------------+---------------------+------------+
-
+zipcodes_two.zipcodes_two LIMIT 10;"+---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
+| Zipcode | ZipCodeType | City | State | LocationType | Coord_Lat | Coord_Long | Location | Decommisioned | TaxReturnsFiled | EstimatedPopulation | TotalWages |
++---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
+| 42040 | STANDARD | FARMINGTON | KY | PRIMARY | 36.67 | -88.53 | NA-US-KY-FARMINGTON | FALSE | 465 | 896 | 11562973 |
+| 41524 | STANDARD | FEDSCREEK | KY | PRIMARY | 37.4 | -82.24 | NA-US-KY-FEDSCREEK | FALSE | | | |
+| 42533 | STANDARD | FERGUSON | KY | PRIMARY | 37.06 | -84.59 | NA-US-KY-FERGUSON | FALSE | 429 | 761 | 9555412 |
+| 40022 | STANDARD | FINCHVILLE | KY | PRIMARY | 38.15 | -85.31 | NA-US-KY-FINCHVILLE | FALSE | 437 | 839 | 19909942 |
+| 40023 | STANDARD | FISHERVILLE | KY | PRIMARY | 38.16 | -85.42 | NA-US-KY-FISHERVILLE | FALSE | 1884 | 3733 | 113020684 |
+| 41743 | PO BOX | FISTY | KY | PRIMARY | 37.33 | -83.1 | NA-US-KY-FISTY | FALSE | | | |
+| 41219 | STANDARD | FLATGAP | KY | PRIMARY | 37.93 | -82.88 | NA-US-KY-FLATGAP | FALSE | 708 | 1397 | 20395667 |
+| 40935 | STANDARD | FLAT LICK | KY | PRIMARY | 36.82 | -83.76 | NA-US-KY-FLAT LICK | FALSE | 752 | 1477 | 14267237 |
+| 40997 | STANDARD | WALKER | KY | PRIMARY | 36.88 | -83.71 | NA-US-KY-WALKER | FALSE | | | |
+| 41139 | STANDARD | FLATWOODS | KY | PRIMARY | 38.51 | -82.72 | NA-US-KY-FLATWOODS | FALSE | 3692 | 6748 | 121902277 |
++---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
 access the slave shard database zipcode one:
 
 ~/CNA350/maxscale/sql/shard-A/slave$ mysql -umaxuser -pmaxpwd -h 127.0.0.1 -P 3306 -e "SELECT * FROM
@@ -100,17 +102,20 @@ To access a master shard database from zipcode two:
 
 It gives me the output:
 
-+---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+-------------
---+-----------------+---------------------+------------+ | Zipcode | ZipCodeType | City | State | LocationType | Coord_Lat |
-Coord_Long | Location | Decommisioned | TaxReturnsFiled | EstimatedPopulation | TotalWages | +---------+-------------+----
----------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+--------
--------------+------------+ | 42040 | STANDARD | FARMINGTON | KY | PRIMARY | 36.67 | -88.53 | NA-US-KY-FARMINGTON
-| FALSE | 465 | 896 | 11562973 | | 41524 | STANDARD | FEDSCREEK | KY | PRIMARY | 37.4 | -82.24 | NA-US-KY-FEDSCREEK |
-FALSE | | | | | 42533 | STANDARD | FERGUSON | KY | PRIMARY | 37.06 | -84.59 | NA-US-KY-FERGUSON | FALSE | 429 | 761 |
-9555412 | | 40022 | STANDARD | FINCHVILLE | KY | PRIMARY | 38.15 | -85.31 | NA-US-KY-FINCHVILLE | FALSE | 437 | 839 |
-19909942 | | 40023 | STANDARD | FISHERVILLE | KY | PRIMARY | 38.16 | -85.42 | NA-US-KY-FISHERVILLE | FALSE | 1884 |
-3733 | 113020684 | | 41743 | PO BOX | FISTY | KY | PRIMARY | 37.33 | -83.1 | NA-US-KY-FISTY | FALSE | | | | | 41219 |
-STANDARD | FLATGAP | KY | PRIMARY | 37.93 | -82.88 | NA-US-KY-FLATGAP | FALSE | 708 | 1397 |
++---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
+| Zipcode | ZipCodeType | City | State | LocationType | Coord_Lat | Coord_Long | Location | Decommisioned | TaxReturnsFiled | EstimatedPopulation | TotalWages |
++---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
+| 42040 | STANDARD | FARMINGTON | KY | PRIMARY | 36.67 | -88.53 | NA-US-KY-FARMINGTON | FALSE | 465 | 896 | 11562973 |
+| 41524 | STANDARD | FEDSCREEK | KY | PRIMARY | 37.4 | -82.24 | NA-US-KY-FEDSCREEK | FALSE | | | |
+| 42533 | STANDARD | FERGUSON | KY | PRIMARY | 37.06 | -84.59 | NA-US-KY-FERGUSON | FALSE | 429 | 761 | 9555412 |
+| 40022 | STANDARD | FINCHVILLE | KY | PRIMARY | 38.15 | -85.31 | NA-US-KY-FINCHVILLE | FALSE | 437 | 839 | 19909942 |
+| 40023 | STANDARD | FISHERVILLE | KY | PRIMARY | 38.16 | -85.42 | NA-US-KY-FISHERVILLE | FALSE | 1884 | 3733 | 113020684 |
+| 41743 | PO BOX | FISTY | KY | PRIMARY | 37.33 | -83.1 | NA-US-KY-FISTY | FALSE | | | |
+| 41219 | STANDARD | FLATGAP | KY | PRIMARY | 37.93 | -82.88 | NA-US-KY-FLATGAP | FALSE | 708 | 1397 | 20395667 |
+| 40935 | STANDARD | FLAT LICK | KY | PRIMARY | 36.82 | -83.76 | NA-US-KY-FLAT LICK | FALSE | 752 | 1477 | 14267237 |
+| 40997 | STANDARD | WALKER | KY | PRIMARY | 36.88 | -83.71 | NA-US-KY-WALKER | FALSE | | | |
+| 41139 | STANDARD | FLATWOODS | KY | PRIMARY | 38.51 | -82.72 | NA-US-KY-FLATWOODS | FALSE | 3692 | 6748 | 121902277 |
++---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
 
 "And thats it, it's all done"
 
