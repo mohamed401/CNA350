@@ -67,7 +67,7 @@ you have to make sure all the databases exis is in subdirectory
 ------+ | Database | +--------------------+ | mysql | | information_schema | | performance_schema | | zipcodes_one | |
 zipcodes_two | +--------------------+
 
-access the master shard database zipcode two
+access the master shard database zipcode one
 
 :~/CNA350/maxscale/sql/shard-A/master$ mysql -umaxuser -pmaxpwd -h 127.0.0.1 -P 3306 -e "SELECT * FROM
 zipcodes_two.zipcodes_two LIMIT 10;"+---------+-------------+-------------+-------+--------------+-----------+------------+----------------------+---------------+-----------------+---------------------+------------+
